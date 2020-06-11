@@ -1,11 +1,5 @@
 #!/bin/sh
 
-datediff() {
-    d1=$(date -d "$1" +%s)
-    d2=$(date -d "$2" +%s)
-    echo $(( (d1 - d2) / (86400 * 24) )) hours
-}
-
 profile_name="$(ls "${XDG_CONFIG_HOME:-$HOME/.config}"/work_profiles | dmenu -p "select a profile")"
 profile_path="${XDG_CONFIG_HOME:-$HOME/.config}/work_profiles/$profile_name"
 
@@ -27,6 +21,7 @@ if [ -f "$profile_path/lock" ]; then
 
     "$profile_path/save" $working_time
     rm "$profile_path/lock"
+    pkill -RTMIN+7 blocks # update icon
     exit
 fi
 
@@ -38,4 +33,6 @@ echo "s$(date -d @"$start")" >> "$profile_path/times_start_end"
 "$profile_path/run" >"$profile_path/log" 2>"$profile_path/err.log" &
 pid=$!
 printf "%s\n%s" "$pid" "$start" > "$profile_path/lock"
+pkill -RTMIN+7 blocks # update icon
+
 notify-send -u low "Started profile $profile_name" "pid: $pid"
