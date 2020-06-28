@@ -1,0 +1,22 @@
+#!/usr/bin/python3
+
+import sys
+import re
+
+if len(sys.argv) < 2:
+    print("provide a profile path as a first arg")
+    exit(1)
+
+pattern = re.compile("^([0-9]+)\sminutes\s\(([a-zA-Z]{3}\s[0-9]{1,2}\s[a-zA-Z]{3})\s([0-9]{1,2}:[0-9]{1,2}:[0-9]{1,2})\sCEST\s([0-9]{4})\sto\s([a-zA-Z]{3}\s[0-9]{1,2}\s[a-zA-Z]{3})\s([0-9]{2}:[0-9]{2}:[0-9]{2})\sCEST\s([0-9]{4})\)$")
+
+hours_dict={}
+with open(sys.argv[1]) as file:
+    for line in file:
+        m = pattern.match(line)
+        if m:
+            groups = m.groups()
+            h = int(groups[0]) / 60
+            hours_dict[groups[1]] = hours_dict[groups[1]] + h if groups[1] in hours_dict else h
+    
+    for t in hours_dict:
+        print(t + ": ", hours_dict[t])

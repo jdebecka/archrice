@@ -1,0 +1,27 @@
+#!/bin/bash
+
+calc() {
+	res="$(awk '{sum += $1} END {print sum/60}')"
+	echo $res | xclip -i -r -selection clipboard
+	notify-send -u low "\"$res\" copied to clipboard"
+	echo $res hours
+}
+
+history_path="${XDG_CACHE_HOME:-$HOME/.cache}"/sumwork_search_history
+profile_name="$(ls "${XDG_CONFIG_HOME:-$HOME/.config}"/work_profiles | dmenu -p "select a profile")"
+profile_path="${XDG_CONFIG_HOME:-$HOME/.config}/work_profiles/$profile_name"
+
+d="$(printf "last\ntoday\nyesterday\n%s" "$(cat $history_path)" | dmenu -p "date (regex)")"
+printf "%s\n%s" "$(cat $history_path)" "$d" | sort | uniq > $history_path
+
+[ "$d" == "print" ] && group_working_hours $profile_path/$(hostname)_times > $profile_path/raport && st -e vim $profile_path/raport && exit 0
+[ "$d" == "all" ] && cat $profile_path/$(hostname)_times | calc && exit 0
+[ -z "$d" ] || [ "$d" == "today" ] && d="$(date +'%a %d %b')"
+
+echo "the sum of $d work:"
+[ ! -f "$profile_path"/$(hostname)_times ] && echo "no work done" && exit 0
+[ "$d" == "last" ] && tail -n1 "$profile_path"/$(hostname)_times | calc && exit 0
+
+[ "$d" == "yesterday" ] && d="$(date -d 'yesterday' +'%a %d %b')"
+
+grep "$d" "$profile_path"/$(hostname)_times | calc

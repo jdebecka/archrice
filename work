@@ -14,8 +14,8 @@ if [ -f "$profile_path/lock" ]; then
     working_time=$(((end - start) / 60))
 
     echo "e$(date -d @"$end")" >> "$profile_path/times_start_end"
-    echo "$working_time minutes ($(date -d @"$start") to $(date -d @"$end"))" >> "$profile_path/times"
-    cp "$profile_path/times" "$profile_path/.times.bak"
+    echo "$working_time minutes ($(date -d @"$start") to $(date -d @"$end"))" >> "$profile_path/$(hostname)_times"
+    cp "$profile_path/$(hostname)_times" "$profile_path/.$(hostname)_times.bak"
 
     notify-send "DONE!" "you've been working for $working_time minutes" || notify-send "Oops" "the profile has exited with an error code"
 
@@ -30,7 +30,7 @@ fi
 start=$(date +%s)
 echo "s$(date -d @"$start")" >> "$profile_path/times_start_end"
 
-"$profile_path/run" >"$profile_path/log" 2>"$profile_path/err.log" &
+st -t "work_profile" -e sh "$profile_path/run" &
 pid=$!
 printf "%s\n%s" "$pid" "$start" > "$profile_path/lock"
 pkill -RTMIN+7 blocks # update icon
