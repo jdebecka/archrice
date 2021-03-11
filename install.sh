@@ -14,7 +14,7 @@ echo "using RICE_DIR=$RICE_DIR, DEST=$DEST"
 # rename old configs and local files
 mkdir "$DEST/old_config"
 
-find "$RICE_DIR" -maxdepth 1 !-path install.sh !-path uninstall.sh !-path "$RICE_DIR" | while read el; do
-  [ -e "$DEST/$(basename "$el")" ] && mv -i "$DEST/$(basename "$el")" old_config && echo "moved $DEST/$(basename "$el") to old_config"
+for el in $(find "$RICE_DIR" -maxdepth 1 ! -path "$RICE_DIR/.git*" ! -path "$RICE_DIR/install.sh" ! -path "$RICE_DIR/uninstall.sh" ! -path "$RICE_DIR/README.md" ! -path "$RICE_DIR"); do
+  [ -e "$DEST/$(basename "$el")" ] && mv -i "$DEST/$(basename "$el")" "$DEST/old_config" && echo "moved $DEST/$(basename "$el") to $DEST/old_config"
   ln -s "$el" "$DEST/$(basename "$el")"
 done
