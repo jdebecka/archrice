@@ -23,5 +23,5 @@
 !.xprofile
 !.zprofile
 
-!.install.sh
-!.uninstall.sh
+!install.sh
+!uninstall.sh
