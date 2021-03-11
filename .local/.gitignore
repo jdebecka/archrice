@@ -1,0 +1,11 @@
+# Ignore everything:
+*
+
+# Except for:
+
+!bin/
+!bin/*
+!bin/*/*
+!bin/*/*/*
+
+!src/
