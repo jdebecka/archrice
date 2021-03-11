@@ -1,0 +1,19 @@
+#!/bin/sh
+
+datediff() {
+    d1=$(date -d "$1" +%s)
+    d2=$(date -d "$2" +%s)
+    echo $(( (d1 - d2) / (86400 * 24) )) hours
+}
+
+find "$HOME"/work/profiles/*/"$(hostname)" -name 'lock' | while read line; do
+profile="${line%%/"$(hostname)"/lock}"
+	start=$(sed '2q;d' "$line")
+	end=$(date +%s)
+	# working_time=$(echo "($end-$start) / 60 / 60" | bc -l)
+	working_time="$(date -u -d @"$(($end-$start))" +'%-Hh %-Mm')"
+	[ "$start" == "paused" ] && printf "%s: paused" "${profile##*/}" && exit
+
+	printf "%s: %s\n" "${profile##*/}" "$working_time"
+	# printf "%s: %.2fh\n" "${profile##*/}" "$working_time"
+done

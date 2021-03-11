@@ -1,0 +1,9 @@
+#!/bin/bash
+
+msgId="991049"
+
+backlight="$(printf %.0f "$(xbacklight -get)")"
+
+#dunstify -u low -r "$msgId" "☀ ${backlight}"
+
+echo "☀$backlight"
