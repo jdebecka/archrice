@@ -22,3 +22,6 @@
 !.xinitrc
 !.xprofile
 !.zprofile
+
+!.install.sh
+!.uninstall.sh
