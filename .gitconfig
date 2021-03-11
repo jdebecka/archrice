@@ -1,0 +1,7 @@
+[credential]
+	helper = !pass-git-helper $@
+[user]
+	email = jannec1290@gmail.com
+	name = jannec22
+[pull]
+	rebase = true

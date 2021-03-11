@@ -1,0 +1,35 @@
+#!/bin/bash
+sep=';'
+
+calc() {
+	res="$(awk -F "$sep" '{sum += $1} END {print sum/60}')"
+	echo $res | xclip -i -r -selection clipboard
+	notify-send -u low "\"$res\" copied to clipboard"
+	echo $res hours
+}
+
+history_file=${XDG_CACHE_HOME:-$HOME/.cache}/sumwork_search_history
+profile_name=$(ls "$HOME/work/profiles" | dmenu -p "select a profile")
+profile_path="$HOME/work/profiles/$profile_name/$(hostname)"
+times_file=/tmp/times
+cat "$profile_path"/times > "$times_file"
+
+[ ! -f "$history_file" ] && printf "last\ntoday\nyesterday\nraport\nall\n" > "$history_file"
+d=$(printf "%s" "$(cat -s $history_file)" | dmenu -p "date (regex)")
+
+[ -z "$d" ] && exit 1
+
+echo "$d" >> "$history_file"
+awk -i inplace '!a[$0]++' "$history_file"
+
+[ "$d" == "raport" ] && group_working_hours "$times_file" "$sep" > $profile_path/raport && st -e vim $profile_path/raport && exit 0
+
+[ "$d" == "all" ] && calc < "$times_file" && exit 0
+
+[ "$d" == "last" ] && sort -k 2,2 -k 3,3 -t "$sep" "$times_file" | tail -n1 | calc && exit 0
+
+[ "$d" == "today" ] && d="$(date +'%d-%m-%Y')"
+
+[ "$d" == "yesterday" ] && d="$(date -d 'yesterday' +'%d-%m-%Y')"
+
+grep "$d" "$times_file" | calc

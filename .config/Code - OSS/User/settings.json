@@ -1,0 +1,102 @@
+{
+    "workbench.startupEditor": "newUntitledFile",
+    "window.menuBarVisibility": "toggle",
+    "workbench.sideBar.location": "left",
+    "workbench.colorTheme": "Community Material Theme Ocean",
+    "editor.fontFamily": "Fira Code, Space Mono",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 16,
+    "editor.tabSize": 2,
+    "editor.minimap.enabled": false,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.factorypath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/node_modules": true
+    },
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "php-cs-fixer.formatHtml": true,
+    "php-cs-fixer.rules": {
+        "@Symfony": true,
+        "@Symfony:risky": true,
+        "concat_space": [
+            "spacing: one"
+        ],
+        "array_syntax": false,
+        "simplified_null_return": false,
+        "phpdoc_align": false,
+        "phpdoc_separation": false,
+        "phpdoc_to_comment": false,
+        "cast_spaces": false,
+        "blank_line_after_opening_tag": false,
+        "single_blank_line_before_namespace": false,
+        "phpdoc_annotation_without_dot": false,
+        "phpdoc_no_alias_tag": false,
+        "space_after_semicolon": false,
+        "yoda_style": false,
+        "no_break_comment": false,
+        "return_type_declaration": [
+            "space_before: none"
+        ],
+        "no_superfluous_phpdoc_tags": false,
+        "class_attributes_separation": {
+            "elements": [
+                "const",
+                "method",
+                "property",
+            ]
+        },
+        "blank_line_before_statement": {
+            "statements": [
+                "return",
+            ]
+        }
+    },
+    "window.zoomLevel": 3,
+    "workbench.tree.indent": 16,
+    "editor.cursorStyle": "block",
+    "clangd.semanticHighlighting": false,
+    "emmet.excludeLanguages": [
+        "m4",
+        "markdown"
+    ],
+    "java.project.importOnFirstTimeStartup": "automatic",
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "cSpell.userWords": [
+        "CHOKIDAR",
+        "ERRORED",
+        "Systail",
+        "USEPOLLING",
+        "clsx",
+        "datetime",
+        "deobfuscate",
+        "dockerignore",
+        "draggable",
+        "dsts",
+        "extfb",
+        "findit",
+        "idst",
+        "ifelse",
+        "lightgreen",
+        "localstorage",
+        "mprops",
+        "noselect",
+        "sssp",
+        "strv",
+        "zipcode"
+    ]
+}

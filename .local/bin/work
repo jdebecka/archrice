@@ -1,0 +1,51 @@
+#!/bin/sh
+
+host="$(hostname)"
+
+format() {
+    time="$1"
+    from="$2"
+    to="$3"
+    echo "$time;$from;$to"
+}
+
+end() {
+    start=$(cat "$1/lock" | sed '2q;d' | tr -td ' ')
+    end=$(date +%s)
+
+    working_time=$(((end - start) / 60))
+
+    if [ "$working_time" != "0" ]; then
+        echo "e$(date -d @"$end")" >>"$1/times_start_end"
+
+        [ ! -f "$1/times" ] && echo "# $(format "working_time" "from" "to")"
+
+        format $working_time $(date -d @"$start" +'%d-%m-%Y_%H:%M') $(date -d @"$end" +'%d-%m-%Y_%H:%M') >>"$1/times"
+        cp "$1/times" "$1.$(date +'%d-%m-%Y').times.bak"
+
+        notify-send "DONE!" "you've been working for $working_time minutes"
+    else
+        notify-send "NO WORK RECORDED" "you've been working less than 1 minute"
+    fi
+
+    pkill -RTMIN+7 blocks # update icon
+}
+
+profile_name="$(ls "$HOME/work/profiles" | dmenu -p "select a profile")"
+profile_path="$HOME/work/profiles/$profile_name/$host"
+
+[ ! -d "$profile_path" ] && notify-send "profile \"$profile_path\" is not a valid profile directory" && exit 1
+
+if [ -f "$profile_path/lock" ]; then
+    end $profile_path
+    rm "$profile_path/lock"
+    exit
+else
+    start=$(date +%s)
+    echo "s$(date -d @"$start")" >>"$profile_path/times_start_end"
+
+    printf "%s\n%s" "$pid" "$start" >"$profile_path/lock"
+    pkill -RTMIN+7 blocks # update icon
+
+    notify-send "Started profile $profile_name"
+fi

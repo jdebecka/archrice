@@ -1,0 +1,3 @@
+#!/bin/sh
+
+setsid brave --disable-web-security --user-data-dir="${XDG_CACHE_HOME:-$HOME/.cache}/.brave-workspace/" --disable-features=PreloadMediaEngagementData,AutoplayIgnoreWebAudio "$@"

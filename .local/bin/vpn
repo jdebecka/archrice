@@ -1,0 +1,48 @@
+#!/bin/bash
+
+updateicon() { \
+  echo "$1" > /tmp/vpnicon
+  pkill -RTMIN+15 "${STATUSBAR:-dwmblocks}"
+}
+
+killvpn() {
+  creds="$(cat /tmp/vpncreds)"
+  [ -f "$creds" ] && rm -f "$creds"
+  vpnpid="$(cat /tmp/vpnpid)"
+  # kill with SIGTERM, allowing finishing touches.
+  sudo kill -15 "$vpnpid"
+  rm -f /tmp/vpnpid
+  updateicon ""
+  # if still runs, SIGKILL it.
+  sleep 3
+  sudo kill -9 "$vpnpid"
+  exit
+}
+
+asktoend() { \
+  response=$(printf "No\\nYes" | dmenu -i -p "vpn connected disconnect?") &&
+  [ "$response" = "Yes" ] &&  killvpn
+}
+
+connect() { \
+  vpn="$(find "${XDG_CONFIG_HOME:-"$HOME/.config"}/vpn" ! -path "${XDG_CONFIG_HOME:-"$HOME/.config"}/vpn" -type d -printf "%f\n" | dmenu -i -p "choose vpn")"
+  [ ! -d "${XDG_CONFIG_HOME:-"$HOME/.config"}/vpn/$vpn" ] && exit 1
+  [ ! -f "${XDG_CONFIG_HOME:-"$HOME/.config"}/vpn/$vpn/$vpn.ovpn" ] && exit 2
+
+  cd "${XDG_CONFIG_HOME:-"$HOME/.config"}/vpn/$vpn"
+
+  pass "vpn/$vpn" > creds
+  sudo openvpn --config "$vpn.ovpn" &
+  [ $? -ne 0 ] && notify-send -u critical "could not connect" "process exited with $?" && exit 1
+  notify-send "$vpn connected"
+
+  echo $! > /tmp/vpnpid
+  echo "$(pwd)/creds" > /tmp/vpncreds
+  updateicon "🔐"
+}
+
+case "$1" in
+	connect) connect;;
+	disconnect) killvpn;;
+	*) ([ -f /tmp/vpnpid ] && asktoend && exit) || connect;;
+esac

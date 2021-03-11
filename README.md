@@ -1,3 +1,3 @@
-### My setup of Luke Smith's voidrice
+### My dot files setup
 
-A bunch of usefull scripts.
+And a bunch of useful scripts.
