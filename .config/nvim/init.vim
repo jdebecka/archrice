@@ -128,8 +128,8 @@ if &diff
     highlight! link DiffText MatchParen
 endif
 
-autocmd BufWritePost ~/.local/src/dwmblocks/config.h !cd ~/.local/src/dwmblocks/; sudo make install && { killall -q dwmblocks;setsid dwmblocks & }
-autocmd BufWritePost ~/.local/src/dwm/config.h !cd ~/.local/src/dwm/; sudo make install && sysact
+autocmd BufWritePost ~/.local/src/dwmblocks/config.h !cd ~/.local/src/dwmblocks/; make install && { killall -q dwmblocks;setsid dwmblocks & }
+autocmd BufWritePost ~/.local/src/dwm/config.h !cd ~/.local/src/dwm/; make install && sysact
 
 " Oceanic
 let g:material_style='oceanic'

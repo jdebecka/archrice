@@ -13,7 +13,7 @@ set ignorecase
 set smartcase
 set nohlsearch
 set incsearch
-set pastetoggle=<f3>
+" set pastetoggle=<f3>
 set suggestoptions=normal,visual,view,otherpane,keys,marks,registers
 colorscheme luke
 

@@ -9,7 +9,7 @@
 
 # Fix Gnome Apps Slow  Start due to failing services
 # Add this when you include flatpak in your system
-setbg "$HOME/wallpapers/.wall" &			# set the background with the `setbg` script
+setbg &			# set the background with the `setbg` script
 #slock &
 #xwinwrap -b -fs -sp -fs -nf -ov  -- /usr/lib/xscreensaver/deepstars -root -window-id WID &
 

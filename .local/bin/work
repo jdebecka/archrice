@@ -34,6 +34,7 @@ end() {
 profile_name="$(ls "$HOME/work/profiles" | dmenu -p "select a profile")"
 profile_path="$HOME/work/profiles/$profile_name/$host"
 
+[ -z "$profile_name" -a "$profile_name" != " " ] && exit 0
 [ ! -d "$profile_path" ] && notify-send "profile \"$profile_path\" is not a valid profile directory" && exit 1
 
 if [ -f "$profile_path/lock" ]; then

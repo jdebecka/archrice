@@ -1,0 +1,39 @@
+#!/bin/sh
+
+hour_rate="40"
+minute_rate="$(echo "scale=2;$hour_rate/60" | bc)"
+sep=';'
+hostname="$(hostname)"
+d="$(date +'%d-%m-%Y')"
+income="0"
+sum="0"
+
+calc() {
+	res="$(awk -F "$sep" '{sum += $1} END {print sum/60}')"
+	printf "%f" $res
+}
+
+find "$HOME"/work/profiles/*/"$hostname" -name 'times' | 
+{
+	while IFS= read -r file; do
+		profile="${file%%/"$hostname/times"}"
+		sumlocal="$(grep 2>/dev/null "$d" "$file" | calc)"
+		lock="$HOME/work/profiles/${profile##*/}/$hostname/lock"
+		
+		if [ -f "$lock" ]; then
+			start=$(sed '2q;d' "$lock")
+			end=$(date +%s)
+			hours="$(echo "($end - $start) / 60" | bc)"
+			sumlocal="$(echo "$sumlocal + $hours" | bc)"
+			working_time="$(date -u -d @"$((end-start))" +'%-Hh %-Mm')"
+
+			printf "⎾%s %s⏌ " "${profile##*/}" "$working_time"
+		fi
+		sum="$(echo "$sum + $sumlocal" | bc)"
+	done
+
+	[ "$sum" != "" ] && income="$(echo "scale=2;$sum * $minute_rate" | bc)"
+	[ "$income" != "0" ] && printf "⎾%.2fPLN today⏌ " "$income"
+}
+
+printf "\n"
