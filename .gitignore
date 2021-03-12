@@ -13,6 +13,10 @@
 !.local/*/*
 !.local/*/*/*
 
+!.local/.gitignore
+!.local/*/.gitignore
+!.local/*/*/.gitignore
+
 !.bash_logout
 !.bash_profile
 !.bashrc
@@ -27,3 +31,4 @@
 !uninstall.sh
 
 !README.md
+!progs.csv

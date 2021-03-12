@@ -23,3 +23,17 @@ cd .archrice
 
 ./uninstall.sh installation/path[$HOME] archrice/path[pwd]
 ```
+
+`.local/src` contains sub-modules with useful programs for which these dotfiles apply:
+
+  - dwm - suckless window manager
+  - st - suckless terminal
+  - slock - screen locker
+  - dwmblocks - statusbar for dwm
+  - dmenu - suskless dmenu
+
+to install these programs run `make clean install` in the root dir for each of them.
+slock is installed globally so it needs `sudo make install`.
+
+to uninstall use `make uninstall`
+

@@ -73,11 +73,6 @@ ncspot/credentials*
 !vpn/*
 !vpn/*/*.ovpn
 
-!work_profiles/
-!work_profiles/*
-!work_profiles/*/*
-!work_profiles/*/*/*
-
 !zathura/
 !zathura/*
 
