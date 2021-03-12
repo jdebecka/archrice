@@ -1,6 +1,0 @@
-#!/bin/sh
-
-code "$HOME/work/systail_panel/front"
-notify-send -u low "starting systail web panel"
-# st -e "/home/me/work/systail_panel/front/run_dev" &
-#setsid brave http://localhost:3000 >/dev/null 2>/dev/null &
