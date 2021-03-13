@@ -1,0 +1,3 @@
+Mar 13 17:19:24 host=ssl0.ovh.net tls=on auth=on user=janek@witkowscy.net from=janek@witkowscy.net recipients=jannec1290@gmail.com mailsize=1819 smtpstatus=250 smtpmsg='250 2.0.0 Ok: queued as 313111C17C4E0' exitcode=EX_OK
+Mar 13 17:28:53 host=ssl0.ovh.net tls=on auth=on user=janek@witkowscy.net from=janek@witkowscy.net recipients=jannec1290@gmail.com mailsize=666 smtpstatus=250 smtpmsg='250 2.0.0 Ok: queued as AAEAF1C16DC10' exitcode=EX_OK
+Mar 13 17:57:46 host=ssl0.ovh.net tls=on auth=on user=janek@witkowscy.net from=janek@witkowscy.net recipients=jannec1290@gmail.com mailsize=943 smtpstatus=250 smtpmsg='250 2.0.0 Ok: queued as 643551C17E6E9' exitcode=EX_OK

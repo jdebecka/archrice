@@ -1,5 +1,7 @@
 #!/bin/bash
 sep=';'
+profiles="${XDG_DATA_HOME:-"$HOME/.local/share"}/profiles"
+host="$(hostname)"
 
 calc() {
 	res="$(awk -F "$sep" '{sum += $1} END {print sum/60}')"
@@ -9,8 +11,13 @@ calc() {
 }
 
 history_file=${XDG_CACHE_HOME:-$HOME/.cache}/sumwork_search_history
-profile_name=$(ls "$HOME/work/profiles" | dmenu -p "select a profile")
-profile_path="$HOME/work/profiles/$profile_name/$(hostname)"
+profiles_paths="$(find "$profiles" -type d -name '\_*')"
+profile_name="$(printf "$profiles_paths" | sed "s#${profiles}/_##" | sed 's#/_#/#' | dmenu -p "select a profile")"
+[ -z "$profile_name" -a "$profile_name" != " " ] && exit 0
+
+profile_rel_path="$(echo "$profile_name" | sed 's#/#/_#')"
+profile_path="$profiles/_$profile_rel_path/$host"
+
 times_file=/tmp/times
 cat "$profile_path"/times > "$times_file"
 

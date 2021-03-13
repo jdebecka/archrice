@@ -1,5 +1,6 @@
 #!/bin/sh
 
+profiles="${XDG_DATA_HOME:-"$HOME/.local/share"}/profiles"
 host="$(hostname)"
 
 format() {
@@ -11,19 +12,40 @@ format() {
 
 end() {
     start=$(cat "$1/lock" | sed '2q;d' | tr -td ' ')
-    end=$(date +%s)
+    startmidnight=$(date -d "$(date -d @"$start" +'%F 0')" +'%s')
 
-    working_time=$(((end - start) / 60))
+    end=$(date +'%s')
+    sum="0"
 
-    if [ "$working_time" != "0" ]; then
-        echo "e$(date -d @"$end")" >>"$1/times_start_end"
+    # iterate through midnights from the one preceding start
+    # to the one following end.
+    # if range overlaps two days, split it in two.
+    for ((i=$startmidnight ; i <= $end ; i += 86400)); do
+        nextmidnight=$(date -d @"$((i + 86400 - 1))" +'%s') # substract one second, so the date will be from day before
+        # it is all just to enable easy way of counting daily work
+        # if the range would contain two days, it could be counted twice
+        ss="$start"
+        ee="$end"
+        
+        [ "$ss" -lt "$i" ] && ss="$i"
+        [ "$ee" -gt "$nextmidnight" ] && ee="$nextmidnight"
 
-        [ ! -f "$1/times" ] && echo "# $(format "working_time" "from" "to")"
+        working_time=$(echo "scale=2;($ee - $ss) / 60" | bc)
+        sum=$(echo "scale=2;$sum + $working_time" | bc)
+        notify-send "partial: $working_time, sum: $sum"
 
-        format $working_time $(date -d @"$start" +'%d-%m-%Y_%H:%M') $(date -d @"$end" +'%d-%m-%Y_%H:%M') >>"$1/times"
-        cp "$1/times" "$1.$(date +'%d-%m-%Y').times.bak"
+        if [ 1 -eq "$(echo "$working_time > 1" | bc)" ]; then
+            echo "e$(date -d @"$ee")" >>"$1/times_start_end"
 
-        notify-send "DONE!" "you've been working for $working_time minutes"
+            [ ! -f "$1/times" ] && echo "# $(format "working_time" "from" "to")"
+
+            format $working_time $(date -d @"$ss" +'%d-%m-%Y_%H:%M') $(date -d @"$ee" +'%d-%m-%Y_%H:%M') >>"$1/times"
+            cp "$1/times" "$1.$(date +'%d-%m-%Y').times.bak"
+        fi
+    done
+
+    if [ 1 -eq "$(echo "$sum > 1" | bc)" ]; then
+        notify-send "DONE!" "you've been working for $(echo "scale=2;$sum/60" | bc) hours"
     else
         notify-send "NO WORK RECORDED" "you've been working less than 1 minute"
     fi
@@ -31,11 +53,14 @@ end() {
     pkill -RTMIN+7 blocks # update icon
 }
 
-profile_name="$(ls "$HOME/work/profiles" | dmenu -p "select a profile")"
-profile_path="$HOME/work/profiles/$profile_name/$host"
-
+profiles_paths="$(find "$profiles" -type d -name '\_*')"
+profile_name="$(printf "$profiles_paths" | sed "s#${profiles}/_##" | sed 's#/_#/#' | dmenu -p "select a profile")"
 [ -z "$profile_name" -a "$profile_name" != " " ] && exit 0
-[ ! -d "$profile_path" ] && notify-send "profile \"$profile_path\" is not a valid profile directory" && exit 1
+
+profile_rel_path="$(echo "$profile_name" | sed 's#/#/_#')"
+profile_path="$profiles/_$profile_rel_path/$host"
+
+[ ! -d "$profile_path" ] && mkdir -p "$profile_path" && touch "$profile_path/times"
 
 if [ -f "$profile_path/lock" ]; then
     end $profile_path

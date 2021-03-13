@@ -4,19 +4,29 @@
 !! Set a default font and font size as below:
 *.font: Fira Code:size=16
 *.background: #000000
-*.borderpx: 0
-*.snap: 32
-*.showbar: 1
-*.topbar: 0
-*.nmaster: 1
+/* *.borderpx: 0 */
+/* *.snap: 32 */
+/* *.showbar: 1 */
+/* *.topbar: 0 */
+/* *.nmaster: 1 */
 /* *.resizehints: 0 */
-*.mfact: 0.60
-*.gappih: 0
-*.gappiv: 0
-*.gappoh: 0
-*.gappov: 0
-*.swallowfloating: 0
-*.smartgaps: 0
+/* *.mfact: 0.60 */
+/* *.gappih: 0 */
+/* *.gappiv: 0 */
+/* *.gappoh: 0 */
+/* *.gappov: 0 */
+/* *.swallowfloating: 0 */
+/* *.smartgaps: 0 */
+
+/* *.termname: "st" */
+/* *.shell: "/bin/sh" */
+/* *.minlatency: 8 */
+/* *.maxlatency: 40 */
+/* *.blinktimeout:  */
+*.bellvolume: 40
+/* *.tabspaces: 2 */
+/* *.cwscale: 0 */
+/* *.chscale: 0 */
 
 /* name		dark	light */
 /* black	0	8 */

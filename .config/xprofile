@@ -12,10 +12,10 @@
 setbg &			# set the background with the `setbg` script
 #slock &
 #xwinwrap -b -fs -sp -fs -nf -ov  -- /usr/lib/xscreensaver/deepstars -root -window-id WID &
-
+eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
+export $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg)
 xrdb "${XDG_CONFIG_HOME:-$HOME/.config}"/Xresources
 dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
-
 # screens=$(xrandr -q | grep " connected" | awk '{print $1}' | sort)
 # primary=$(echo $screens | tr -s '\n' ' ' | cut -d ' ' -f1)
 # for s in "$(echo ${screens##$primary} | xargs)"; do

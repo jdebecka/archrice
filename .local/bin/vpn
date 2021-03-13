@@ -1,10 +1,5 @@
 #!/bin/bash
 
-updateicon() { \
-  echo "$1" > /tmp/vpnicon
-  pkill -RTMIN+15 "${STATUSBAR:-dwmblocks}"
-}
-
 killvpn() {
   creds="$(cat /tmp/vpncreds)"
   [ -f "$creds" ] && rm -f "$creds"
@@ -12,7 +7,6 @@ killvpn() {
   # kill with SIGTERM, allowing finishing touches.
   sudo kill -15 "$vpnpid"
   rm -f /tmp/vpnpid
-  updateicon ""
   # if still runs, SIGKILL it.
   sleep 3
   sudo kill -9 "$vpnpid"
@@ -20,8 +14,9 @@ killvpn() {
 }
 
 asktoend() { \
-  response=$(printf "No\\nYes" | dmenu -i -p "vpn connected disconnect?") &&
-  [ "$response" = "Yes" ] &&  killvpn
+  # response=$(printf "No\\nYes" | dmenu -i -p "vpn connected disconnect?") &&
+  # [ "$response" = "Yes" ] &&  killvpn
+  killvpn
 }
 
 connect() { \
@@ -38,7 +33,6 @@ connect() { \
 
   echo $! > /tmp/vpnpid
   echo "$(pwd)/creds" > /tmp/vpncreds
-  updateicon "🔐"
 }
 
 case "$1" in

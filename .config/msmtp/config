@@ -4,9 +4,14 @@ tls	on
 tls_trust_file	/etc/ssl/certs/ca-certificates.crt
 logfile	~/.config/msmtp/msmtp.log
 
-
-
-
-
-
+account janek@witkowscy.net
+host ssl0.ovh.net
+port 465
+from janek@witkowscy.net
+user janek@witkowscy.net
+passwordeval "pass janek@witkowscy.net"
+auth on
+tls_starttls off
+tls_trust_file	/etc/ssl/certs/ca-certificates.crt
+logfile /home/me/.config/msmtp/msmtp.log
 
