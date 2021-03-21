@@ -1,7 +1,7 @@
 #!/bin/sh
 
 eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
-xrdb "${XDG_CONFIG_HOME:-$HOME/.config}"/shell/xresources
+xrdb "${XDG_CONFIG_HOME:-$HOME/.config}"/x11/xresources
 dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
 setbg &			# set the background with the `setbg` script
 mpd &			# music player daemon-you might prefer it as a service though
