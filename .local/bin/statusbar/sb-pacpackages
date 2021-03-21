@@ -16,7 +16,7 @@
 # Description = Updating statusbar...
 # When = PostTransaction
 # Exec = /usr/bin/pkill -RTMIN+8 dwmblocks # Or i3blocks if using i3.
-icon="⇈"
+icon="⧉"
 
 case $BLOCK_BUTTON in
 	1) setsid -f "$TERMINAL" -e sb-popupgrade ;;
@@ -27,4 +27,6 @@ case $BLOCK_BUTTON in
 	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
 
-pacman -Qu | grep -Fcv "[ignored]" | sed "s/^/$icon/;s/^${icon}0$//g"
+nr="$(pacman -Qu | grep -Fcv "[ignored]")"
+
+[ "$nr" != "0" ] && echo "$nr$icon"

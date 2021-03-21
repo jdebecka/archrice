@@ -37,26 +37,14 @@
 !mpv/
 !mpv/input.conf
 
-!msmtp/
-!msmtp/*
-
-!mutt/
-!mutt/*
-!mutt/*/*
-
 !ncspot/
-!ncspot/*
-# !! ignore credentials !!
-ncspot/credentials*
+!ncspot/config.toml
 
 !newsboat/
 !newsboat/*
 
 !nvim/
 !nvim/init.vim
-
-!pass-git-helper/
-!pass-git-helper/*
 
 !redshift/
 !redshift/*
@@ -69,27 +57,30 @@ ncspot/credentials*
 !vifm/*
 !vifm/*/*
 
-!vpn/
-!vpn/*
-!vpn/*/*.ovpn
-
 !zathura/
 !zathura/*
 
 !zsh/
 !zsh/*
 
+!wal/
+!wal/*
+!wal/*/*
+!wal/*/*/*
 
-!aliasrc
-!directories
-!files
+!x11/
+!x11/*
+
+!shell/
+!shell/*
+
 !.gitignore
-!inputrc
 !mimeapps.list
-!profile
-!shortcutrc
 !user-dirs.dirs
-!xinitrc
-!xprofile
-!Xresources
-!zshnameddirrc
+
+# ignore all things that may be private
+vpn/
+mutt/
+msmtp/
+ncspot/credentials*
+pass-git-helper/

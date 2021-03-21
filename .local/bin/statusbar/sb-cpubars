@@ -27,7 +27,7 @@ echo "$stats" | while IFS= read -r row; do
 	idle=${rest##* }
 
 	case "$(echo "$old" | awk '{if ($1 == id)
-		printf "%d\n", (1 - (idle - $3)  / (total - $2))*100 /12.5}' \
+		printf "%d\n", (1 - (idle - $3)  / (total - $2))*100 / 12.5}' \
 		id="$id" total="$total" idle="$idle")" in
 
 		"0") printf "▁";;

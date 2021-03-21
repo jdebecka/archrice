@@ -1,16 +1,16 @@
 #!/bin/sh
 
 # Prints all batteries, their percentage remaining and an emoji corresponding
-# to charge status (🔌 for plugged up, 🔋 for discharging on battery, etc.).
+# to charge status (↯ for plugged up, ⇣ for discharging on battery, etc.).
 
 case $BLOCK_BUTTON in
-	3) notify-send "🔋 Battery module" "🔋: discharging
-🛑: not charging
-♻: stagnant charge
-🔌: charging
-⚡: charged
-❗: battery very low!
-- Scroll to change adjust xbacklight." ;;
+# 	3) notify-send "Battery module" "⇣: discharging
+# ⊗: not charging
+# ♲: stagnant charge
+# ↯: charging
+# ∞: charged
+# ❗: battery very low!
+# - Scroll to change adjust xbacklight." ;;
 	4) xbacklight -inc 10 ;;
 	5) xbacklight -dec 10 ;;
 	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
@@ -22,15 +22,42 @@ for battery in /sys/class/power_supply/BAT?*; do
 	[ -n "${capacity+x}" ] && printf " "
 	# Sets up the status and capacity
 	case "$(cat "$battery/status")" in
-		"Full") status="⚡" ;;
-		"Discharging") status="🔋" ;;
-		"Charging") status="🔌" ;;
-		"Not charging") status="🛑" ;;
-		"Unknown") status="♻️" ;;
+		"Full") status="∞" ;;
+		"Discharging") status= ;;
+		"Charging") status="↯" ;;
+		"Not charging") status="⊗" ;;
+		"Unknown") status="♲" ;;
 	esac
 	capacity=$(cat "$battery/capacity")
-	# Will make a warn variable if discharging and low
-	[ "$status" = "🔋" ] && [ "$capacity" -le 25 ] && warn="❗"
+	[ -z "$capacity" ] && capacity="0"
+
+	if [ "$capacity" -gt "90" ]; then
+		cap_icon="█"
+	elif [ "$capacity" -gt "80" ]; then
+		cap_icon="█"
+	elif [ "$capacity" -gt "70" ]; then
+		cap_icon="▇"
+	elif [ "$capacity" -gt "60" ]; then
+		cap_icon="▆"
+	elif [ "$capacity" -gt "50" ]; then
+		cap_icon="▅"
+	elif [ "$capacity" -gt "40" ]; then
+		cap_icon="▄"
+	elif [ "$capacity" -gt "30" ]; then
+		cap_icon="▃"
+	elif [ "$capacity" -gt "20" ]; then
+		cap_icon="▂"
+	elif [ "$capacity" -gt "10" ]; then
+		# Will make a warn variable if discharging and low
+		[ -z "$status" ] && [ "$capacity" -le 15 ] && warn="❗"
+		cap_icon="▁"
+	elif [ "$capacity" -gt "0" ]; then
+		cap_icon="_"
+	else
+		cap_icon=" "
+		capacity=""
+	fi
+
 	# Prints the info
-	[ "$status" != "" ] && printf "%s%s%d%%" "$status" "$warn" "$capacity"; unset warn
+	[ "$status" != "" ] && printf "%s%s%s%d%%" "$status" "$warn" "$cap_icon" "$capacity"; unset warn
 done && exit 0

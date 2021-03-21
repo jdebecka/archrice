@@ -26,13 +26,12 @@ end() {
         # if the range would contain two days, it could be counted twice
         ss="$start"
         ee="$end"
-        
+
         [ "$ss" -lt "$i" ] && ss="$i"
         [ "$ee" -gt "$nextmidnight" ] && ee="$nextmidnight"
 
         working_time=$(echo "scale=2;($ee - $ss) / 60" | bc)
         sum=$(echo "scale=2;$sum + $working_time" | bc)
-        notify-send "partial: $working_time, sum: $sum"
 
         if [ 1 -eq "$(echo "$working_time > 1" | bc)" ]; then
             echo "e$(date -d @"$ee")" >>"$1/times_start_end"

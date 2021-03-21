@@ -11,12 +11,20 @@ calc() {
 	printf "%f" $res
 }
 
+find_upwards() {
+	[ -z "$3" ] 3="0"
+	[ "$3" -gt "5" ] && echo "0" && exit
+	[ -f "$1/$2" ] && echo "$1/$2" || find_upwards "$(dirname "$1")" "$2" "$(($3+1))"
+}
+
+[ -f "$profiles/daily_goal" ] && goal="$(cat "$profiles/daily_goal")" || goal="0"
+
 find "$profiles" -type d -path "*/$hostname*" | 
 {
 	while IFS= read -r profile; do
 		file="$profile/times"
 		lock="$profile/lock"
-		rate="$profile/rate"
+		rate="$(find_upwards "$profile" "rate")"
 		minutes="$(grep 2>/dev/null "$d" "$file" | calc)"
 
 		[ -f "$rate" ] && hour_rate="$(cat "$rate")" || hour_rate="0"
@@ -29,13 +37,40 @@ find "$profiles" -type d -path "*/$hostname*" |
 			minutes="$(echo "scale=2;$minutes + $pending" | bc)"
 			working_time="$(date -u -d @"$((end-start))" +'%-Hh %-Mm')"
 
-			printf "⎾%s %s⏌ " "$(echo "${profile%%/$hostname}" | sed "s#${profiles}/_##" | sed 's#/_#/#')" "$working_time"
+			printf "⎾%s %s⏌ " "$(printf "${profile%%/$hostname}" | sed "s#${profiles}/_##" | sed 's#/_#/#')" "$working_time"
 		fi
 		
 		income="$(echo "scale=2;$income + $minutes * $minute_rate" | bc)"
 	done
 
-	[ "$income" != "0" ] && printf "⎾%.2fPLN today⏌ " "$income"
+	perc="$(echo "($income * 100) / $goal" | bc)"
+
+	if [ "$perc" -gt "90" ]; then
+		icon="█"
+	elif [ "$perc" -gt "80" ]; then
+		icon="█"
+	elif [ "$perc" -gt "70" ]; then
+		icon="▇"
+	elif [ "$perc" -gt "60" ]; then
+		icon="▆"
+	elif [ "$perc" -gt "50" ]; then
+		icon="▅"
+	elif [ "$perc" -gt "40" ]; then
+		icon="▄"
+	elif [ "$perc" -gt "30" ]; then
+		icon="▃"
+	elif [ "$perc" -gt "20" ]; then
+		icon="▂"
+	elif [ "$perc" -gt "10" ]; then
+		icon="▁"
+	elif [ "$perc" -gt "0" ]; then
+		icon="_"
+	else
+		icon=" "
+		perc=""
+	fi
+
+	[ "$income" != "0" ] && printf "┆▕$icon▏%d%% ┆ " "$perc"
 }
 
 printf "\n"

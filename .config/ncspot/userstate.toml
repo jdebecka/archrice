@@ -4,6 +4,24 @@ repeat = 'off'
 
 [[queue]]
 type = 'Track'
+id = '5VUQsLff8A3ruAyCdTxqzg'
+uri = 'spotify:track:5VUQsLff8A3ruAyCdTxqzg'
+title = 'Who Am I'
+track_number = 4
+disc_number = 1
+duration = 335906
+artists = ['Casting Crowns']
+artist_ids = ['6eJqAWJdd8JhAN1pQGie4r']
+album = 'Casting Crowns'
+album_id = '0OET3Pft2RKmDxzpP3FcGc'
+album_artists = ['Casting Crowns']
+cover_url = 'https://i.scdn.co/image/ab67616d0000b273b6b4afa5bec4ca0e9e586e2f'
+url = 'spotify:track:5VUQsLff8A3ruAyCdTxqzg'
+added_at = '2021-03-19T19:56:09Z'
+list_index = 0
+
+[[queue]]
+type = 'Track'
 id = '516tdRJGjgk6zCJ4S0nbFd'
 uri = 'spotify:track:516tdRJGjgk6zCJ4S0nbFd'
 title = 'Męczennik'
@@ -4644,7 +4662,7 @@ artist_ids = [
     '6LnsaAaWRTuPCtvQvEIi2i',
     '1b8U8JnyaUcNpiaoBk80ue',
     '1Pq2VOGMf5CyPnzTqvgOq1',
-    '28SYkto7A2ToO29KnMaUcr',
+    '1KFcbdF1lM9FGM0pMzfoqF',
     '3tIuDX97G6mxs19z9UjedI',
     '3sYjKuTeP3mEZWbSdCijMn',
     '50vxSuT1UsG5fNqRolCbvV',
@@ -16157,24 +16175,6 @@ list_index = 0
 
 [[queue]]
 type = 'Track'
-id = '0P4JuEXYJmu2Q7BTtQW5nR'
-uri = 'spotify:track:0P4JuEXYJmu2Q7BTtQW5nR'
-title = 'Fear Of The Dark - 1998 Remastered Version'
-track_number = 12
-disc_number = 1
-duration = 436826
-artists = ['Iron Maiden']
-artist_ids = ['6mdiAmATAx73kdxrNrnlao']
-album = 'Fear Of The Dark (1998 Remastered Edition)'
-album_id = '6NWFRuPH02C5mBf909pQ26'
-album_artists = ['Iron Maiden']
-cover_url = 'https://i.scdn.co/image/ab67616d0000b2738784fc3a907ccfc1974d51bf'
-url = 'spotify:track:0P4JuEXYJmu2Q7BTtQW5nR'
-added_at = '2016-06-30T16:28:52Z'
-list_index = 0
-
-[[queue]]
-type = 'Track'
 id = '0KipVgZ87uuiO0sMPkMr7z'
 uri = 'spotify:track:0KipVgZ87uuiO0sMPkMr7z'
 title = 'Faint - Live from Third Encore Studio, North Hollywood, CA, 3/14/2007'
@@ -16629,24 +16629,6 @@ list_index = 0
 
 [[queue]]
 type = 'Track'
-id = '2D1O6DE5aJDGHsb0W38EAN'
-uri = 'spotify:track:2D1O6DE5aJDGHsb0W38EAN'
-title = 'The Unforgiven II'
-track_number = 4
-disc_number = 1
-duration = 396440
-artists = ['Metallica']
-artist_ids = ['2ye2Wgw4gimLv2eAKyk1NB']
-album = 'Reload'
-album_id = '73E6u02YIL3dK6UConUUv4'
-album_artists = ['Metallica']
-cover_url = 'https://i.scdn.co/image/ab67616d0000b2738cbcf2a6c980d97e7347e4b3'
-url = 'spotify:track:2D1O6DE5aJDGHsb0W38EAN'
-added_at = '2016-06-30T16:28:52Z'
-list_index = 0
-
-[[queue]]
-type = 'Track'
 id = '1D5qqmZ0pbOPQItKRLSZNe'
 uri = 'spotify:track:1D5qqmZ0pbOPQItKRLSZNe'
 title = 'I Bet My Life'
@@ -16933,6 +16915,24 @@ album_id = '3QxX3NbWyLlLG6lP1xveL3'
 album_artists = ['System Of A Down']
 cover_url = 'https://i.scdn.co/image/ab67616d0000b273f5e7b2e5adaa87430a3eccff'
 url = 'spotify:track:1VNWaY3uNfoeWqb5U8x2QX'
+added_at = '2016-06-30T16:28:52Z'
+list_index = 0
+
+[[queue]]
+type = 'Track'
+id = '0P4JuEXYJmu2Q7BTtQW5nR'
+uri = 'spotify:track:0P4JuEXYJmu2Q7BTtQW5nR'
+title = 'Fear Of The Dark - 1998 Remastered Version'
+track_number = 12
+disc_number = 1
+duration = 436826
+artists = ['Iron Maiden']
+artist_ids = ['6mdiAmATAx73kdxrNrnlao']
+album = 'Fear Of The Dark (1998 Remastered Edition)'
+album_id = '6NWFRuPH02C5mBf909pQ26'
+album_artists = ['Iron Maiden']
+cover_url = 'https://i.scdn.co/image/ab67616d0000b2738784fc3a907ccfc1974d51bf'
+url = 'spotify:track:0P4JuEXYJmu2Q7BTtQW5nR'
 added_at = '2016-06-30T16:28:52Z'
 list_index = 0
 
@@ -17385,6 +17385,24 @@ list_index = 0
 
 [[queue]]
 type = 'Track'
+id = '2D1O6DE5aJDGHsb0W38EAN'
+uri = 'spotify:track:2D1O6DE5aJDGHsb0W38EAN'
+title = 'The Unforgiven II'
+track_number = 4
+disc_number = 1
+duration = 396440
+artists = ['Metallica']
+artist_ids = ['2ye2Wgw4gimLv2eAKyk1NB']
+album = 'Reload'
+album_id = '73E6u02YIL3dK6UConUUv4'
+album_artists = ['Metallica']
+cover_url = 'https://i.scdn.co/image/ab67616d0000b2738cbcf2a6c980d97e7347e4b3'
+url = 'spotify:track:2D1O6DE5aJDGHsb0W38EAN'
+added_at = '2016-06-30T16:28:52Z'
+list_index = 0
+
+[[queue]]
+type = 'Track'
 id = '2sh7F7QR5VOy1jH7CJwEk5'
 uri = 'spotify:track:2sh7F7QR5VOy1jH7CJwEk5'
 title = 'Kara Barabasza'
@@ -17524,24 +17542,6 @@ album_id = '0cn6MHyx4YuZauaB7Pb66o'
 album_artists = ['System Of A Down']
 cover_url = 'https://i.scdn.co/image/ab67616d0000b273c65f8d04502eeddbdd61fa71'
 url = 'spotify:track:41pOIT2t1rvr2Trg1HQChZ'
-added_at = '2016-06-30T16:28:52Z'
-list_index = 0
-
-[[queue]]
-type = 'Track'
-id = '49Vh9X4j4xsZRv0OtSWfNj'
-uri = 'spotify:track:49Vh9X4j4xsZRv0OtSWfNj'
-title = 'Hurting As One'
-track_number = 5
-disc_number = 1
-duration = 169893
-artists = ['The Offspring']
-artist_ids = ['5LfGQac0EIXyAN8aUwmNAQ']
-album = 'Days Go By'
-album_id = '1ZWY0MgSTNxZrCTSHOQTyC'
-album_artists = ['The Offspring']
-cover_url = 'https://i.scdn.co/image/ab67616d0000b2733f1244a7ccb6fc17fe19bb11'
-url = 'spotify:track:49Vh9X4j4xsZRv0OtSWfNj'
 added_at = '2016-06-30T16:28:52Z'
 list_index = 0
 
@@ -18418,24 +18418,6 @@ list_index = 0
 
 [[queue]]
 type = 'Track'
-id = '5uuXtfqM7Wp3idCxyHeOll'
-uri = 'spotify:track:5uuXtfqM7Wp3idCxyHeOll'
-title = 'With You'
-track_number = 3
-disc_number = 1
-duration = 203266
-artists = ['Linkin Park']
-artist_ids = ['6XyY86QOPPrYVGvF9ch6wz']
-album = 'Hybrid Theory (Bonus Edition)'
-album_id = '6hPkbAV3ZXpGZBGUvL6jVM'
-album_artists = ['Linkin Park']
-cover_url = 'https://i.scdn.co/image/ab67616d0000b273e2f039481babe23658fc719a'
-url = 'spotify:track:5uuXtfqM7Wp3idCxyHeOll'
-added_at = '2016-06-30T16:28:52Z'
-list_index = 0
-
-[[queue]]
-type = 'Track'
 id = '4ObCns6nM6tShx5a5tHiGC'
 uri = 'spotify:track:4ObCns6nM6tShx5a5tHiGC'
 title = 'The Razors Edge'
@@ -18524,6 +18506,24 @@ album_id = '37lWyRxkf3wQHCOlXM5WfX'
 album_artists = ['Metallica']
 cover_url = 'https://i.scdn.co/image/ab67616d0000b273f2f3cd931f707244804807c1'
 url = 'spotify:track:5SnOyuBtyzufoXBAKOdcxD'
+added_at = '2016-06-30T16:28:52Z'
+list_index = 0
+
+[[queue]]
+type = 'Track'
+id = '49Vh9X4j4xsZRv0OtSWfNj'
+uri = 'spotify:track:49Vh9X4j4xsZRv0OtSWfNj'
+title = 'Hurting As One'
+track_number = 5
+disc_number = 1
+duration = 169893
+artists = ['The Offspring']
+artist_ids = ['5LfGQac0EIXyAN8aUwmNAQ']
+album = 'Days Go By'
+album_id = '1ZWY0MgSTNxZrCTSHOQTyC'
+album_artists = ['The Offspring']
+cover_url = 'https://i.scdn.co/image/ab67616d0000b2733f1244a7ccb6fc17fe19bb11'
+url = 'spotify:track:49Vh9X4j4xsZRv0OtSWfNj'
 added_at = '2016-06-30T16:28:52Z'
 list_index = 0
 
@@ -19224,6 +19224,24 @@ list_index = 0
 
 [[queue]]
 type = 'Track'
+id = '5uuXtfqM7Wp3idCxyHeOll'
+uri = 'spotify:track:5uuXtfqM7Wp3idCxyHeOll'
+title = 'With You'
+track_number = 3
+disc_number = 1
+duration = 203266
+artists = ['Linkin Park']
+artist_ids = ['6XyY86QOPPrYVGvF9ch6wz']
+album = 'Hybrid Theory (Bonus Edition)'
+album_id = '6hPkbAV3ZXpGZBGUvL6jVM'
+album_artists = ['Linkin Park']
+cover_url = 'https://i.scdn.co/image/ab67616d0000b273e2f039481babe23658fc719a'
+url = 'spotify:track:5uuXtfqM7Wp3idCxyHeOll'
+added_at = '2016-06-30T16:28:52Z'
+list_index = 0
+
+[[queue]]
+type = 'Track'
 id = '7klLXey9V4OrC6mwUXf8Fc'
 uri = 'spotify:track:7klLXey9V4OrC6mwUXf8Fc'
 title = 'Davy Jones'
@@ -19893,24 +19911,6 @@ list_index = 0
 
 [[queue]]
 type = 'Track'
-id = '0Dv4DdNy1xnhNcCd9YVoiH'
-uri = 'spotify:track:0Dv4DdNy1xnhNcCd9YVoiH'
-title = 'No Good in Goodbye'
-track_number = 1
-disc_number = 1
-duration = 307680
-artists = ['The Script']
-artist_ids = ['3AQRLZ9PuTAozP28Skbq8V']
-album = 'No Sound Without Silence'
-album_id = '6yd9yk8nFcHalXzy7mgaDx'
-album_artists = ['The Script']
-cover_url = 'https://i.scdn.co/image/ab67616d0000b27359d2079e141301ab89b6cbc5'
-url = 'spotify:track:0Dv4DdNy1xnhNcCd9YVoiH'
-added_at = '2016-06-30T16:28:51Z'
-list_index = 0
-
-[[queue]]
-type = 'Track'
 id = '0Bn854XtnJv15m9f1ZvWbe'
 uri = 'spotify:track:0Bn854XtnJv15m9f1ZvWbe'
 title = 'Papieros'
@@ -19966,6 +19966,24 @@ album_id = '0SKIz8AFnXKHt6kLNCST5r'
 album_artists = ['Zbigniew Preisner']
 cover_url = 'https://i.scdn.co/image/ab67616d0000b2735f0da1f9e2cd9d4e1e0d9847'
 url = 'spotify:track:05g5zmgD2QEfuzZCHD7aAD'
+added_at = '2016-06-30T16:28:51Z'
+list_index = 0
+
+[[queue]]
+type = 'Track'
+id = '0Dv4DdNy1xnhNcCd9YVoiH'
+uri = 'spotify:track:0Dv4DdNy1xnhNcCd9YVoiH'
+title = 'No Good in Goodbye'
+track_number = 1
+disc_number = 1
+duration = 307680
+artists = ['The Script']
+artist_ids = ['3AQRLZ9PuTAozP28Skbq8V']
+album = 'No Sound Without Silence'
+album_id = '6yd9yk8nFcHalXzy7mgaDx'
+album_artists = ['The Script']
+cover_url = 'https://i.scdn.co/image/ab67616d0000b27359d2079e141301ab89b6cbc5'
+url = 'spotify:track:0Dv4DdNy1xnhNcCd9YVoiH'
 added_at = '2016-06-30T16:28:51Z'
 list_index = 0
 
@@ -20850,30 +20868,6 @@ list_index = 0
 
 [[queue]]
 type = 'Track'
-id = '2FFoqmwg67eSw4tRGvtuWQ'
-uri = 'spotify:track:2FFoqmwg67eSw4tRGvtuWQ'
-title = 'Kolęda Dla Nieobecnych'
-track_number = 16
-disc_number = 1
-duration = 351640
-artists = [
-    'Zbigniew Preisner',
-    'Beata Rybotycka',
-]
-artist_ids = [
-    '3gGbSXSwHWmrUBIG9IUAau',
-    '6Vef1uH58eZYNnafL1ooT5',
-]
-album = 'W Poszukiwaniu Dróg. Nowe I Stare Kolędy'
-album_id = '0SKIz8AFnXKHt6kLNCST5r'
-album_artists = ['Zbigniew Preisner']
-cover_url = 'https://i.scdn.co/image/ab67616d0000b2735f0da1f9e2cd9d4e1e0d9847'
-url = 'spotify:track:2FFoqmwg67eSw4tRGvtuWQ'
-added_at = '2016-06-30T16:28:51Z'
-list_index = 0
-
-[[queue]]
-type = 'Track'
 id = '0itNMuBHye9fu392b4e9oa'
 uri = 'spotify:track:0itNMuBHye9fu392b4e9oa'
 title = 'Tell Me Baby'
@@ -21394,24 +21388,6 @@ list_index = 0
 
 [[queue]]
 type = 'Track'
-id = '4KcrVjgrRyMWZayPqRxuxX'
-uri = 'spotify:track:4KcrVjgrRyMWZayPqRxuxX'
-title = 'Tu Umierają Anioły'
-track_number = 4
-disc_number = 1
-duration = 259720
-artists = ['K2']
-artist_ids = ['4AUxF5JzWvu6fYvro26Yxt']
-album = 'Anatomia'
-album_id = '1zFhm6DBLxe5HZVDzoDUmb'
-album_artists = ['K2']
-cover_url = 'https://i.scdn.co/image/ab67616d0000b273dd09aa2f9fc29ada65ff687c'
-url = 'spotify:track:4KcrVjgrRyMWZayPqRxuxX'
-added_at = '2016-06-30T16:28:51Z'
-list_index = 0
-
-[[queue]]
-type = 'Track'
 id = '2YzEBNMHkL79f4tBp8ashp'
 uri = 'spotify:track:2YzEBNMHkL79f4tBp8ashp'
 title = 'Tu Gdzie Żyjemy'
@@ -21761,6 +21737,30 @@ album_id = '2qzXQqV4N9qXgR6vb3wHa2'
 album_artists = ['SCHULTE-BUNERT, RADOWITZ']
 cover_url = 'https://i.scdn.co/image/ab67616d0000b273316ff289481beaf621f5d6cd'
 url = 'spotify:track:4FyeFVjoWsqjlXBl2697RM'
+added_at = '2016-06-30T16:28:51Z'
+list_index = 0
+
+[[queue]]
+type = 'Track'
+id = '2FFoqmwg67eSw4tRGvtuWQ'
+uri = 'spotify:track:2FFoqmwg67eSw4tRGvtuWQ'
+title = 'Kolęda Dla Nieobecnych'
+track_number = 16
+disc_number = 1
+duration = 351640
+artists = [
+    'Zbigniew Preisner',
+    'Beata Rybotycka',
+]
+artist_ids = [
+    '3gGbSXSwHWmrUBIG9IUAau',
+    '6Vef1uH58eZYNnafL1ooT5',
+]
+album = 'W Poszukiwaniu Dróg. Nowe I Stare Kolędy'
+album_id = '0SKIz8AFnXKHt6kLNCST5r'
+album_artists = ['Zbigniew Preisner']
+cover_url = 'https://i.scdn.co/image/ab67616d0000b2735f0da1f9e2cd9d4e1e0d9847'
+url = 'spotify:track:2FFoqmwg67eSw4tRGvtuWQ'
 added_at = '2016-06-30T16:28:51Z'
 list_index = 0
 
@@ -22222,6 +22222,24 @@ list_index = 0
 
 [[queue]]
 type = 'Track'
+id = '4KcrVjgrRyMWZayPqRxuxX'
+uri = 'spotify:track:4KcrVjgrRyMWZayPqRxuxX'
+title = 'Tu Umierają Anioły'
+track_number = 4
+disc_number = 1
+duration = 259720
+artists = ['K2']
+artist_ids = ['4AUxF5JzWvu6fYvro26Yxt']
+album = 'Anatomia'
+album_id = '1zFhm6DBLxe5HZVDzoDUmb'
+album_artists = ['K2']
+cover_url = 'https://i.scdn.co/image/ab67616d0000b273dd09aa2f9fc29ada65ff687c'
+url = 'spotify:track:4KcrVjgrRyMWZayPqRxuxX'
+added_at = '2016-06-30T16:28:51Z'
+list_index = 0
+
+[[queue]]
+type = 'Track'
 id = '51pQ7vY7WXzxskwloaeqyj'
 uri = 'spotify:track:51pQ7vY7WXzxskwloaeqyj'
 title = 'Stairway to Heaven - 1990 Remaster'
@@ -22307,24 +22325,6 @@ album_id = '029WUoBjWc7Js1QiPH3mw0'
 album_artists = ['James Arthur']
 cover_url = 'https://i.scdn.co/image/ab67616d0000b273192221f838b7b6b9cb4629bf'
 url = 'spotify:track:5yVIlYEHZxQVLyInCdldoS'
-added_at = '2016-06-30T16:28:51Z'
-list_index = 0
-
-[[queue]]
-type = 'Track'
-id = '69bp2EbF7Q2rqc5N3ylezZ'
-uri = 'spotify:track:69bp2EbF7Q2rqc5N3ylezZ'
-title = 'Sorry'
-track_number = 4
-disc_number = 1
-duration = 200786
-artists = ['Justin Bieber']
-artist_ids = ['1uNFoZAHBGtllmzznpCI3s']
-album = 'Purpose (Deluxe)'
-album_id = '7fZH0aUAjY3ay25obOUf2a'
-album_artists = ['Justin Bieber']
-cover_url = 'https://i.scdn.co/image/ab67616d0000b273b6d9a4fbb0bd49f0f034aead'
-url = 'spotify:track:69bp2EbF7Q2rqc5N3ylezZ'
 added_at = '2016-06-30T16:28:51Z'
 list_index = 0
 
@@ -23227,6 +23227,24 @@ album_id = '1G2ZRwcqN6warfakvcPgEs'
 album_artists = ['Rihanna']
 cover_url = 'https://i.scdn.co/image/ab67616d0000b273ad4ef80be7f5e15d64ac5c25'
 url = 'spotify:track:6tXjP6xgPJ7Xr1igrO6bOE'
+added_at = '2016-06-30T16:28:51Z'
+list_index = 0
+
+[[queue]]
+type = 'Track'
+id = '69bp2EbF7Q2rqc5N3ylezZ'
+uri = 'spotify:track:69bp2EbF7Q2rqc5N3ylezZ'
+title = 'Sorry'
+track_number = 4
+disc_number = 1
+duration = 200786
+artists = ['Justin Bieber']
+artist_ids = ['1uNFoZAHBGtllmzznpCI3s']
+album = 'Purpose (Deluxe)'
+album_id = '7fZH0aUAjY3ay25obOUf2a'
+album_artists = ['Justin Bieber']
+cover_url = 'https://i.scdn.co/image/ab67616d0000b273b6d9a4fbb0bd49f0f034aead'
+url = 'spotify:track:69bp2EbF7Q2rqc5N3ylezZ'
 added_at = '2016-06-30T16:28:51Z'
 list_index = 0
 

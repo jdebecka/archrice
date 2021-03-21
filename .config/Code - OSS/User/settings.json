@@ -2,7 +2,7 @@
     "workbench.startupEditor": "newUntitledFile",
     "window.menuBarVisibility": "toggle",
     "workbench.sideBar.location": "left",
-    "workbench.colorTheme": "Community Material Theme Ocean",
+    "workbench.colorTheme": "Material Theme Ocean High Contrast",
     "editor.fontFamily": "Fira Code, Space Mono",
     "editor.fontLigatures": true,
     "editor.fontSize": 16,
@@ -95,8 +95,15 @@
         "localstorage",
         "mprops",
         "noselect",
+        "phpmyadmin",
         "sssp",
         "strv",
         "zipcode"
+    ],
+    "rainbow_csv.autodetect_separators": [
+        "\t",
+        ";",
+        "|",
+        ","
     ]
 }

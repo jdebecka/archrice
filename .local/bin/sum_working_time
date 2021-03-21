@@ -16,10 +16,10 @@ profile_name="$(printf "$profiles_paths" | sed "s#${profiles}/_##" | sed 's#/_#/
 [ -z "$profile_name" -a "$profile_name" != " " ] && exit 0
 
 profile_rel_path="$(echo "$profile_name" | sed 's#/#/_#')"
-profile_path="$profiles/_$profile_rel_path/$host"
+# profile_paths="$(find "$profiles" -path "*_$profile_rel_path/*" -path "*/$host*" -name "times")"
 
 times_file=/tmp/times
-cat "$profile_path"/times > "$times_file"
+cat $(find "$profiles" -path "*_$profile_rel_path/*" -path "*/$host*" -name "times") > "$times_file"
 
 [ ! -f "$history_file" ] && printf "last\ntoday\nyesterday\nraport\nall\n" > "$history_file"
 d=$(printf "%s" "$(cat -s $history_file)" | dmenu -p "date (regex)")
@@ -29,7 +29,7 @@ d=$(printf "%s" "$(cat -s $history_file)" | dmenu -p "date (regex)")
 echo "$d" >> "$history_file"
 awk -i inplace '!a[$0]++' "$history_file"
 
-[ "$d" == "raport" ] && group_working_hours "$times_file" "$sep" > $profile_path/raport && st -e vim $profile_path/raport && exit 0
+# [ "$d" == "raport" ] && group_working_hours "$times_file" "$sep" > $profile_path/raport && st -e vim $profile_path/raport && exit 0
 
 [ "$d" == "all" ] && calc < "$times_file" && exit 0
 

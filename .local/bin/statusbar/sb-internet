@@ -1,30 +1,52 @@
 #!/bin/sh
 
-# Show wifi 📶 and percent strength or 📡 if none.
-# Show 🌐 if connected to ethernet or ❎ if none.
+# Show wifi ⚹ and percent strength or ⊖ if none.
+# Show 🌐 if connected to ethernet or ∅ if none.
 # Show ⚼ if a vpn connection is active
 
 vpn_icon="⚼ "
 ethernet_up_icon="🌐"
-ethernet_down_icon="❎"
-wifi_up_icon="📶"
-wifi_down_icon="📡 "
+ethernet_down_icon="∅"
+wifi_up_icon="⚹"
+wifi_down_icon="⊖"
 
 case $BLOCK_BUTTON in
 	# 1) "$TERMINAL" -e nmtui; pkill -RTMIN+4 dwmblocks ;;
-	3) notify-send "🌐 Internet module" "\- Click to connect
-$wifi_down_icon: no wifi connection
-$wifi_up_icon: wifi connection with quality
-$ethernet_down_icon: no ethernet
-$ethernet_up_icon: ethernet working
-$vpn_icon: vpn is active
-" ;;
-	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
+	3) cat /sys/class/net/w*/operstate 2>/dev/null && "$TERMINAL" -e sudo wifi-menu; pkill -RTMIN+4 dwmblocks ;;
 esac
 
 case "$(cat /sys/class/net/w*/operstate 2>/dev/null)" in
 	down) wifi="$wifi_down_icon" ;;
-	up) wifi="$(awk "/^\s*w/ { print $wifi_up_icon, int($3 * 100 / 70) '% ' }" /proc/net/wireless)" ;;
+	up)
+		strength="$(awk "/^\s*w/ { print int($3 * 100 / 70) '% ' }" /proc/net/wireless)"
+
+		if [ "$strength" -gt "90" ]; then
+			icon="█"
+		elif [ "$strength" -gt "80" ]; then
+			icon="█"
+		elif [ "$strength" -gt "70" ]; then
+			icon="▇"
+		elif [ "$strength" -gt "60" ]; then
+			icon="▆"
+		elif [ "$strength" -gt "50" ]; then
+			icon="▅"
+		elif [ "$strength" -gt "40" ]; then
+			icon="▄"
+		elif [ "$strength" -gt "30" ]; then
+			icon="▃"
+		elif [ "$strength" -gt "20" ]; then
+			icon="▂"
+		elif [ "$strength" -gt "10" ]; then
+			icon="▁"
+		elif [ "$strength" -gt "0" ]; then
+			icon="_"
+		else
+			icon=" "
+			strength=""
+		fi
+
+		wifi="$wifi_up_icon $icon"
+	;;
 esac
 
 printf "%s%s%s\n" "$wifi" "$(sed "s/.*/$vpn_icon/" /sys/class/net/tun*/operstate 2>/dev/null)" "$(sed "s/down/$ethernet_down_icon/;s/up/$ethernet_up_icon/" /sys/class/net/e*/operstate 2>/dev/null)"

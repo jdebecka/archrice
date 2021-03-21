@@ -39,11 +39,11 @@ pamixer --list-sinks | grep alsa_output | cut -d ' ' -f1 | uniq | sort | while I
 	elif [ "$vol" -gt "0" ]; then
 		icon="_"
 	else
-		icon="$muted"
+		icon=" "
 		vol=""
 	fi
 
-	printf "┊%s┊%d%% " "$icon" "$vol"
+	printf "%s %d%% " "$icon" "$vol"
 done
 
 printf "\n"

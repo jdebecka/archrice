@@ -2,3 +2,4 @@
 source /usr/local/share/mutt-wizard/mutt-wizard.muttrc
 source /home/me/.config/mutt/accounts/1-janek@witkowscy.net.muttrc
 macro index,pager i1 '<sync-mailbox><enter-command>source /home/me/.config/mutt/accounts/1-janek@witkowscy.net.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to janek@witkowscy.net"
+macro index,pager i2 '<sync-mailbox><enter-command>source /home/me/.config/mutt/accounts/2-jannec1290@gmail.com.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to jannec1290@gmail.com"
