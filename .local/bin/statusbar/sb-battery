@@ -54,10 +54,12 @@ for battery in /sys/class/power_supply/BAT?*; do
 	elif [ "$capacity" -gt "0" ]; then
 		cap_icon="_"
 	else
-		cap_icon=" "
+		cap_icon=""
 		capacity=""
 	fi
 
+	[ -n "$capacity" ] && capacity="$capacity% "
+
 	# Prints the info
-	[ "$status" != "" ] && printf "%s%s%s%d%%" "$status" "$warn" "$cap_icon" "$capacity"; unset warn
+	printf "%s%s%s%s" "$status" "$warn" "$capacity" "$cap_icon"; unset warn
 done && exit 0

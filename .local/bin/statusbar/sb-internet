@@ -49,4 +49,4 @@ case "$(cat /sys/class/net/w*/operstate 2>/dev/null)" in
 	;;
 esac
 
-printf "%s%s%s\n" "$wifi" "$(sed "s/.*/$vpn_icon/" /sys/class/net/tun*/operstate 2>/dev/null)" "$(sed "s/down/$ethernet_down_icon/;s/up/$ethernet_up_icon/" /sys/class/net/e*/operstate 2>/dev/null)"
+printf "%s%s%s\n" "$wifi" "$(sed "s/.*/$vpn_icon/" /sys/class/net/tun*/operstate 2>/dev/null)" "$([ -z "$wifi" ] && sed "s/down/$ethernet_down_icon/;s/up/$ethernet_up_icon/" /sys/class/net/e*/operstate 2>/dev/null)"
