@@ -21,14 +21,14 @@ for battery in /sys/class/power_supply/BAT?*; do
 	# If non-first battery, print a space separator.
 	[ -n "${capacity+x}" ] && printf " "
 	# Sets up the status and capacity
-	case "$(cat "$battery/status")" in
+	case "$(cat 2>/dev/null "$battery/status")" in
 		"Full") status="∞" ;;
 		"Discharging") status= ;;
 		"Charging") status="↯" ;;
 		"Not charging") status="⊗" ;;
 		"Unknown") status="♲" ;;
 	esac
-	capacity=$(cat "$battery/capacity")
+	capacity=$(cat 2>/dev/null "$battery/capacity")
 	[ -z "$capacity" ] && capacity="0"
 
 	if [ "$capacity" -gt "90" ]; then

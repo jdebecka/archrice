@@ -12,9 +12,10 @@ calc() {
 }
 
 find_upwards() {
-	[ -z "$3" ] 3="0"
-	[ "$3" -gt "5" ] && echo "0" && exit
-	[ -f "$1/$2" ] && echo "$1/$2" || find_upwards "$(dirname "$1")" "$2" "$(($3+1))"
+	depth="$3"
+	[ -z "$depth" ] && depth="0"
+	[ "$depth" -gt "5" ] && echo "0" && exit
+	[ -f "$1/$2" ] && echo "$1/$2" || find_upwards "$(dirname "$1")" "$2" "$(($depth+1))"
 }
 
 [ -f "$profiles/daily_goal" ] && goal="$(cat "$profiles/daily_goal")" || goal="0"

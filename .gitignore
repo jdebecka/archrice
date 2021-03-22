@@ -62,7 +62,7 @@
 !.config/zathura/*
 
 !.config/zsh/
-!.config/zsh/*
+!.config/zsh/.zshrc
 
 !.config/wal/
 !.config/wal/*

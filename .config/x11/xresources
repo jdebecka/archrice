@@ -2,7 +2,7 @@
 *.alpha: 0.82
 
 !! Set a default font and font size as below:
-*.font: Fira Code:size=16
+*.font: Fira Code:size=18
 *.background: #000000
 /* *.borderpx: 0 */
 /* *.snap: 32 */
