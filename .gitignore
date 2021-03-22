@@ -99,6 +99,7 @@
 .local/src/*/*
 .local/src/*/.*
 
+!.local/share/applications/
 !.local/share/applications/*
 !.local/share/emoji
 !.local/share/ttymaps.kmap
