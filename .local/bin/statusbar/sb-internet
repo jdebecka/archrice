@@ -18,7 +18,7 @@ esac
 case "$(cat /sys/class/net/w*/operstate 2>/dev/null)" in
 	down) wifi="$wifi_down_icon" ;;
 	up)
-		strength="$(awk "/^\s*w/ { print int($3 * 100 / 70) }" /proc/net/wireless)"
+		strength="$(awk '/^\s*w/ { print int($3 * 100 / 70) }' /proc/net/wireless)"
 
 		if [ "$strength" -gt "90" ]; then
 			icon="█"
