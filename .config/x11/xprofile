@@ -4,11 +4,14 @@ eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh
 xrdb "${XDG_CONFIG_HOME:-$HOME/.config}"/x11/xresources
 dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
 setbg &			# set the background with the `setbg` script
-mpd &			# music player daemon-you might prefer it as a service though
+# mpd &			# music player daemon-you might prefer it as a service though
 remaps &		# run the remaps script, switching caps/esc and more; check it for more info
 xcompmgr &		# xcompmgr for transparency
 dunst &			# dunst for notifications
 xset r rate 300 50 &	# Speed xrate up
 unclutter &		# Remove mouse when idle
 pidof redshift >/dev/null && killall redshift
-redshift 2>/dev/null >/dev/null &
+setsid redshift 2>/dev/null >/dev/null &
+pidof syncthing >/dev/null && killall syncthing
+setsid syncthing -no-browser 2>/dev/null >/dev/null &
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/x11/xkbmap ] && setxkbmap "$(cat "${XDG_CONFIG_HOME:-$HOME/.config}"/x11/xkbmap)"

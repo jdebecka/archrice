@@ -16,3 +16,6 @@
 [submodule ".local/src/mutt-wizard"]
 	path = .local/src/mutt-wizard
 	url = https://github.com/LukeSmithxyz/mutt-wizard
+[submodule ".local/src/pass-git-helper"]
+	path = .local/src/pass-git-helper
+	url = https://github.com/languitar/pass-git-helper.git
