@@ -98,6 +98,8 @@
 !.local/src/*
 .local/src/*/*
 .local/src/*/.*
+!.local/src/st_luke/
+!.local/src/st_luke/*
 
 !.local/share/applications/
 !.local/share/applications/*
