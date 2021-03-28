@@ -55,7 +55,7 @@
             ]
         }
     },
-    "window.zoomLevel": 3,
+    "window.zoomLevel": 1,
     "workbench.tree.indent": 16,
     "editor.cursorStyle": "block",
     "clangd.semanticHighlighting": false,
@@ -81,9 +81,11 @@
         "ERRORED",
         "Systail",
         "USEPOLLING",
+        "Witkowski",
         "clsx",
         "datetime",
         "deobfuscate",
+        "distro",
         "dockerignore",
         "draggable",
         "dsts",
@@ -96,8 +98,12 @@
         "mprops",
         "noselect",
         "phpmyadmin",
+        "poogi",
+        "preconnect",
         "sssp",
         "strv",
+        "suckless",
+        "symfony",
         "zipcode"
     ],
     "rainbow_csv.autodetect_separators": [
@@ -105,5 +111,10 @@
         ";",
         "|",
         ","
-    ]
+    ],
+    "python.showStartPage": false,
+    "spellright.documentTypes": [
+        "*"
+    ],
+    "cSpell.diagnosticLevel": "Error"
 }

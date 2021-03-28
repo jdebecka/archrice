@@ -1,6 +1,6 @@
 #!/bin/sh
 
-profiles="${XDG_DATA_HOME:-"$HOME/.local/share"}/profiles" 
+profiles="${XDG_DATA_HOME:-"$HOME/.local/share"}/profiles"
 sep=';'
 hostname="$(hostname)"
 d="$(date +'%d-%m-%Y')"
@@ -20,7 +20,7 @@ find_upwards() {
 
 [ -f "$profiles/daily_goal" ] && goal="$(cat "$profiles/daily_goal")" || goal="0"
 
-find "$profiles" -type d -path "*/$hostname*" | 
+find "$profiles" -type d -path "*/$hostname*" |
 {
 	while IFS= read -r profile; do
 		file="$profile/times"
@@ -30,7 +30,7 @@ find "$profiles" -type d -path "*/$hostname*" |
 
 		[ -f "$rate" ] && hour_rate="$(cat "$rate")" || hour_rate="0"
 		minute_rate="$(echo "scale=2;$hour_rate/60" | bc)"
-		
+
 		if [ -f "$lock" ]; then
 			start=$(sed '2q;d' "$lock")
 			end=$(date +%s)
@@ -40,38 +40,13 @@ find "$profiles" -type d -path "*/$hostname*" |
 
 			printf "⎾%s %s⏌ " "$(printf "${profile%%/$hostname}" | sed "s#${profiles}/_##" | sed 's#/_#/#')" "$working_time"
 		fi
-		
+
 		income="$(echo "scale=2;$income + $minutes * $minute_rate" | bc)"
 	done
 
 	perc="$(echo "($income * 100) / $goal" | bc)"
 
-	if [ "$perc" -gt "90" ]; then
-		icon="█"
-	elif [ "$perc" -gt "80" ]; then
-		icon="█"
-	elif [ "$perc" -gt "70" ]; then
-		icon="▇"
-	elif [ "$perc" -gt "60" ]; then
-		icon="▆"
-	elif [ "$perc" -gt "50" ]; then
-		icon="▅"
-	elif [ "$perc" -gt "40" ]; then
-		icon="▄"
-	elif [ "$perc" -gt "30" ]; then
-		icon="▃"
-	elif [ "$perc" -gt "20" ]; then
-		icon="▂"
-	elif [ "$perc" -gt "10" ]; then
-		icon="▁"
-	elif [ "$perc" -gt "0" ]; then
-		icon="_"
-	else
-		icon=" "
-		perc=""
-	fi
-
-	[ "$income" != "0" ] && printf "┆▕$icon▏%d%% ┆ " "$perc"
+	[ "$income" != "0" ] && printf "%d%%" "$perc"
 }
 
 printf "\n"
