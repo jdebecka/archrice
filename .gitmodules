@@ -19,3 +19,6 @@
 [submodule ".local/src/pass-git-helper"]
 	path = .local/src/pass-git-helper
 	url = https://github.com/languitar/pass-git-helper.git
+[submodule ".local/src/surf"]
+	path = .local/src/surf
+	url = https://git.suckless.org/surf
