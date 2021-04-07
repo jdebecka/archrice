@@ -34,7 +34,7 @@
        state="1" />
     <group
        id="scrollbars"
-       state="1" />
+       state="0" />
   </group>
   <group
      id="fullscreen">
@@ -127,8 +127,8 @@
          id="rect"
          style="fill:blue;"
          usecurrent="1"
-         width="1372.25"
-         height="941.098"
+         width="33.9211"
+         height="19.0418"
          ry="0"
          rx="0" />
       <eventcontext
@@ -326,7 +326,7 @@
        use_svg2="1"
        style="line-height:1.25;font-family:sans-serif;font-size:10px"
        selcue="1"
-       align_mode="1" />
+       align_mode="2" />
     <eventcontext
        id="nodes"
        selcue="1"
@@ -549,8 +549,8 @@
        page="0"
        x="0"
        y="0"
-       w="532"
-       h="459"
+       w="529"
+       h="549"
        visible="1"
        state="2"
        placement="5" />
@@ -573,8 +573,8 @@
        align-to="0"
        x="0"
        y="0"
-       w="532"
-       h="459"
+       w="529"
+       h="549"
        visible="1"
        state="2"
        placement="5" />
@@ -622,8 +622,8 @@
        path=""
        x="0"
        y="0"
-       w="532"
-       h="459"
+       w="529"
+       h="549"
        visible="1"
        state="2"
        placement="5">
@@ -654,7 +654,7 @@
     <group
        id="import"
        enable_preview="1"
-       path="/home/me/"
+       path="/home/me/slub/codes/qr/"
        ask="1"
        ask_svg="1"
        link="embed"
@@ -1015,7 +1015,7 @@
      org.inkscape.effect.filter.ColorDropShadow.color="1061109664" />
   <group
      id="desktop"
-     style="fill:#ffffff;font-size:40px;-inkscape-font-specification:'PT Mono';font-family:'PT Mono';fill-rule:evenodd;writing-mode:vertical-lr;text-orientation:upright;text-align:center;stroke-linecap:square;text-anchor:middle;stroke:#000000;stroke-width:0;">
+     style="fill:none;font-size:11px;-inkscape-font-specification:'Special Elite';font-family:'Special Elite';fill-rule:evenodd;writing-mode:vertical-lr;text-orientation:upright;stroke-linecap:square;stroke-width:11.33858268;text-anchor:end;text-align:end;stroke:#000000">
     <group
        width="3840"
        height="2132"
@@ -1122,7 +1122,7 @@
      language="" />
   <group
      id="theme"
-     defaultTheme="Arc-Gruvbox"
+     defaultTheme="Materia"
      defaultIconTheme="Adwaita"
      gtkTheme="Arc-Gruvbox"
      iconTheme="Adwaita"

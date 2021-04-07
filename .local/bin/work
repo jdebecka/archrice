@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 profiles="${XDG_DATA_HOME:-"$HOME/.local/share"}/profiles"
 host="$(hostname)"

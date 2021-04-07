@@ -55,7 +55,7 @@
             ]
         }
     },
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 3,
     "workbench.tree.indent": 16,
     "editor.cursorStyle": "block",
     "clangd.semanticHighlighting": false,
@@ -79,9 +79,12 @@
     "cSpell.userWords": [
         "CHOKIDAR",
         "ERRORED",
+        "Polski",
         "Systail",
         "USEPOLLING",
         "Witkowski",
+        "browserslist",
+        "cacheable",
         "clsx",
         "datetime",
         "deobfuscate",
@@ -93,17 +96,21 @@
         "findit",
         "idst",
         "ifelse",
+        "languagedetector",
         "lightgreen",
         "localstorage",
+        "mixins",
         "mprops",
         "noselect",
         "phpmyadmin",
         "poogi",
+        "precaching",
         "preconnect",
         "sssp",
         "strv",
         "suckless",
         "symfony",
+        "usercx",
         "zipcode"
     ],
     "rainbow_csv.autodetect_separators": [
@@ -116,5 +123,5 @@
     "spellright.documentTypes": [
         "*"
     ],
-    "cSpell.diagnosticLevel": "Error"
+    "cSpell.diagnosticLevel": "Warning"
 }
