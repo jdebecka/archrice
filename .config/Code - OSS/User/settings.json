@@ -55,7 +55,6 @@
             ]
         }
     },
-    "window.zoomLevel": 3,
     "workbench.tree.indent": 16,
     "editor.cursorStyle": "block",
     "clangd.semanticHighlighting": false,
@@ -83,15 +82,19 @@
         "Systail",
         "USEPOLLING",
         "Witkowski",
+        "arange",
         "browserslist",
         "cacheable",
         "clsx",
+        "cmap",
+        "contourf",
         "datetime",
         "deobfuscate",
         "distro",
         "dockerignore",
         "draggable",
         "dsts",
+        "extd",
         "extfb",
         "findit",
         "idst",
@@ -102,16 +105,23 @@
         "mixins",
         "mprops",
         "noselect",
+        "numpy",
         "phpmyadmin",
         "poogi",
         "precaching",
         "preconnect",
         "projekt",
+        "pyplot",
+        "sklearn",
         "sssp",
         "strv",
         "suckless",
         "symfony",
         "usercx",
+        "xlabel",
+        "xlim",
+        "ylabel",
+        "ylim",
         "zipcode"
     ],
     "rainbow_csv.autodetect_separators": [
@@ -124,5 +134,20 @@
     "spellright.documentTypes": [
         "*"
     ],
-    "cSpell.diagnosticLevel": "Warning"
+    "cSpell.diagnosticLevel": "Warning",
+    "cSpell.allowCompoundWords": true,
+    "[dart]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true,
+        "editor.rulers": [
+            80
+        ],
+        "editor.selectionHighlight": false,
+        "editor.suggest.snippetsPreventQuickSuggestions": false,
+        "editor.suggestSelection": "first",
+        "editor.tabCompletion": "onlySnippets",
+        "editor.wordBasedSuggestions": false
+    },
+    "dart.allowAnalytics": false,
+    "dart.previewHotReloadOnSaveWatcher": true
 }
